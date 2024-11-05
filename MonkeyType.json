@@ -1,0 +1,27 @@
+{
+  "category": "Gaming",
+  "issuer": "MonkeyType",
+  "desc": "A platform for typing practice to improve speed and accuracy.",
+  "website": "https://monkeytype.com/account",
+  "APIs": [
+    {
+      "host": "api.monkeytype.com",
+      "intercept": {
+        "url": "users",
+        "method": "GET"
+      },
+      "assert": [
+        {
+          "key": "data|personalBests|time|30|0|wpm",
+          "value": "50",
+          "operation": ">"
+        }
+      ],
+      "nullifier": "data|name"
+    }
+  ],
+  "HRCondition": ["Typing speed greater than 50 WPM"],
+  "tips": {
+    "message": "When you successfully log in, please click the 'Start' button to initiate the verification process."
+  }
+}
